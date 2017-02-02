@@ -182,24 +182,21 @@ class Game(object):
     def compareResults(self, pr, dr):
         playerScore = 0
         dealerScore = 0
-        try:
-            for result in pr:
-                if dr > 21:
-                    if result <= 21:
-                        playerScore += 1
-                    else:
-                        dealerScore += 1
-                elif dr <= 21:
-                    if result > 21:
-                        dealerScore += 1
-                    elif result == dr:
-                        continue
-                    elif result > dr:
-                        playerScore += 1
-                    else:
-                        dealerScore += 1
-        except TypeError:
-            pdb.set_trace()
+        for result in pr:
+            if dr > 21:
+                if result <= 21:
+                    playerScore += 1
+                else:
+                    dealerScore += 1
+            elif dr <= 21:
+                if result > 21:
+                    dealerScore += 1
+                elif result == dr:
+                    continue
+                elif result > dr:
+                    playerScore += 1
+                else:
+                    dealerScore += 1
         return {'Player Score': playerScore, 'Dealer Score': dealerScore}
 
     def playGame(self):
