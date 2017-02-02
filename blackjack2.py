@@ -171,9 +171,6 @@ class Game(object):
         hand.addCard(self.deck.randomDraw())
 
     def deal(self):
-        for i in range(2):
-            for hand in [self.playerHandSingle, self.dealerHand]:
-                hand.addCard(self.deck.randomDraw())
         self.playerHandSingle.addCard(self.deck.randomDraw())
         upcard = self.deck.randomDraw()
         self.dealerHand.addCard(upcard)
